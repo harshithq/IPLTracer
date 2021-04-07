@@ -52,7 +52,7 @@ const Player =({ route, navigation }) =>
                   <View style={styles.bannerAD}>
                 <AdMobBanner
                bannerSize="smartBanner"
-               adUnitID="ca-app-pub-7523541834254785/1427754205"  // true or false
+               adUnitID="ca-app-pub-3940256099942544/6300978111"  // true or false
                onDidFailToReceiveAdWithError={(e) => console.log(e)}
               />
               </View>

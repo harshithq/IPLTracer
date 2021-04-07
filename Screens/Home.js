@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 
 async function adsCall() {
   console.log("called");
-  await AdMobInterstitial.setAdUnitID('ca-app-pub-7523541834254785/9469895759'); // Test ID, Replace with your-admob-unit-id
+  await AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/6300978111"); // Test ID, Replace with your-admob-unit-id
   await AdMobInterstitial.requestAdAsync({servePersonalizedAds : false});
   await AdMobInterstitial.showAdAsync();
 
@@ -101,7 +101,7 @@ const Home =(props) =>
               <AdMobBanner
                bannerSize="smartBanner"
                servePersonalizedAds={true}
-               adUnitID="ca-app-pub-7523541834254785/4530422089"  // true or false
+               adUnitID="ca-app-pub-3940256099942544/6300978111" // true or false
                onDidFailToReceiveAdWithError={(e) => console.log(e)}
               />
               </View>
