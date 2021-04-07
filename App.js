@@ -18,6 +18,7 @@ import { AdMobBanner,PublisherBanner,AdMobRewarded,AdMobInterstitial,setTestDevi
 
 const Tab = createMaterialBottomTabNavigator();
 
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }else {
@@ -64,6 +65,7 @@ function MyTabs() {
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
+
   componentDidMount(){
     const myitems=firebase.database().ref("items");
     myitems.on("value",datasnap=>{
