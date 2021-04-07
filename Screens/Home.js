@@ -74,7 +74,6 @@ const Home =(props) =>
           >
             <Image source={{uri: item.image}} style={styles.carouselImage} />
             <Text style={styles.carouselText}>{item.shortTitle}</Text>
-            <MaterialIcons name='library-add' size={30} color='white' style={styles.carouselIcon} />
           </TouchableOpacity>
          
         </View>
@@ -194,7 +193,8 @@ const styles = StyleSheet.create({
         position: 'absolute', 
         bottom: 10, 
         left: 2, 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize:20,
     },
     carouselIcon: {
         position: 'absolute', 

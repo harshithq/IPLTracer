@@ -15,6 +15,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons';
 import Player from './Screens/Player';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AdMobBanner,PublisherBanner,AdMobRewarded,AdMobInterstitial,setTestDeviceIDAsync} from 'expo-ads-admob';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -39,7 +40,8 @@ function MyTabs() {
        options={{
            tabBarLabel: '',
            tabBarIcon: ({ color }) => (
-             <MaterialCommunityIcons name="home" color={color} size={28} />
+
+             <MaterialIcons name="live-tv" color={color} size={26} />
            ),
          }}
      />
@@ -47,7 +49,7 @@ function MyTabs() {
        options={{
            tabBarLabel: '',
            tabBarIcon: ({ color }) => (
-             <MaterialCommunityIcons name="camera-metering-spot" color={color} size={28} />
+             <MaterialIcons name="sports-cricket" color={color} size={28} />
            ),
          }}
      />
@@ -55,7 +57,7 @@ function MyTabs() {
        options={{
            tabBarLabel: '',
            tabBarIcon: ({ color }) => (
-             <MaterialCommunityIcons name="account" color={color} size={28} />
+<MaterialIcons name="schedule" size={24} color="white" />
            ),
          }}
      />
