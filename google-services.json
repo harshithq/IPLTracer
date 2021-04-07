@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "108608798036",
+    "firebase_url": "https://rnapp-ac343-default-rtdb.firebaseio.com",
+    "project_id": "rnapp-ac343",
+    "storage_bucket": "rnapp-ac343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108608798036:android:a0a5e16c33ee2f79bb1cc1",
+        "android_client_info": {
+          "package_name": "com.RnApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108608798036-2mhisf0r6icri9irimh6a9fur1mcs87q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMSDXZdzC7qK6xeQx_e1BTGKdfPbjpzSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108608798036-2mhisf0r6icri9irimh6a9fur1mcs87q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1477639281711657~2433644306"
+    }
+  ],
+  "configuration_version": "1"
+}

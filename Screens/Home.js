@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, ImageBackground, TextInput, TouchableWithoutFeedback, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView, ImageBackground, TextInput, TouchableWithoutFeedback, FlatList,Alert} from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel from 'react-native-anchor-carousel';
 import { FontAwesome5, Feather, MaterialIcons } from '@expo/vector-icons';
@@ -7,19 +7,23 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Player from './Player';
 import { AdMobBanner,PublisherBanner,AdMobRewarded,AdMobInterstitial,setTestDeviceIDAsync} from 'expo-ads-admob';
+import * as Analytics from 'expo-firebase-analytics';
 
 const Stack = createStackNavigator();
 
 async function adsCall() {
   console.log("called");
-  await AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/5224354917'); // Test ID, Replace with your-admob-unit-id
-  await AdMobRewarded.requestAdAsync();
-  await AdMobRewarded.showAdAsync();
+  await AdMobInterstitial.setAdUnitID('ca-app-pub-7523541834254785/9469895759'); // Test ID, Replace with your-admob-unit-id
+  await AdMobInterstitial.requestAdAsync({servePersonalizedAds : false});
+  await AdMobInterstitial.showAdAsync();
+
+}
+async function analytics(){
+ await Analytics.setCurrentScreen('Home');
 }
 
 const Home =(props) =>
 {
-  
     let arr=[];
     const [gallery, setgallery] = useState(arr);
       useEffect(() => {
@@ -31,6 +35,7 @@ const Home =(props) =>
           console.log("trig");
         });
       },[]);
+
 
     const [background,setBackground] = useState({
         uri: 'https://image.winudf.com/v2/image1/Y29tLmlscHdhbGxwYXBlci5jc2t3YWxscGFwZXJfc2NyZWVuXzBfMTYwMDY1ODk1Nl8wNzg/screen-0.jpg?fakeurl=1&type=.jpg',
@@ -97,7 +102,7 @@ const Home =(props) =>
               <AdMobBanner
                bannerSize="smartBanner"
                servePersonalizedAds={true}
-               adUnitID="ca-app-pub-3940256099942544/6300978111"  // true or false
+               adUnitID="ca-app-pub-7523541834254785/4530422089"  // true or false
                onDidFailToReceiveAdWithError={(e) => console.log(e)}
               />
               </View>
@@ -127,8 +132,32 @@ const Home =(props) =>
             <FontAwesome5  name='play' size={22} color='#02ad94' style={{marginLeft: 4}} onPress={() => 
                     {
                       adsCall();
-                      console.log("Clicked");
+                      analytics();
+                      Analytics.logEvent('ButtonTapped', {
+                      name: 'play',
+                      screen: 'Home',
+                      purpose: 'defeated'
+                      });
+                      console.log("Clicked button");
                       console.log(ind);
+                      if(ind===0)
+                      {
+                        console.log("Clicked 0");
+                        Alert.alert(
+        "To Watch Stream",
+        "First Select Stream than click Play Button",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ],
+        { cancelable: false }
+      )
+                      }
+                      else
                       props.navigation.navigate('Player',{itemId: 1,otherParam: ind});
                     }}  />
         </TouchableOpacity>
